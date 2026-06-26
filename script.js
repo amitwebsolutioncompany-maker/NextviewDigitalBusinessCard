@@ -400,6 +400,15 @@ if (downloadQrBtn) {
     downloadQrBtn.addEventListener('click', downloadQRCode);
 }
 
+// Profile Page Back Button - Go to QR Page
+const profileBackBtn = document.getElementById('profileBackBtn');
+if (profileBackBtn && profileId) {
+    profileBackBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = `?profile=${profileId}`;
+    });
+}
+
 // Splash Screen
 setTimeout(() => {
     const splash = document.getElementById('splash');
