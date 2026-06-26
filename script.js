@@ -61,7 +61,7 @@ const profiles = {
         role: 'BD Manager',
         phone: '+918817142700',
         email: 'sonikhushal.ks@gmail.com',
-        image: 'khushal.PNG'
+        image: 'khusal.PNG'
     },
     'haseeb-mohamr': {
         name: 'Haseeb Mohamr',
