@@ -1,84 +1,84 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/milan-bhatt",
-      "destination": "/milan-bhatt/index.html"
+      "src": "/milan-bhatt",
+      "dest": "/milan-bhatt/index.html"
     },
     {
-      "source": "/milan-bhatt/",
-      "destination": "/milan-bhatt/index.html"
+      "src": "/milan-bhatt/",
+      "dest": "/milan-bhatt/index.html"
     },
     {
-      "source": "/harshit-chavda",
-      "destination": "/harshit-chavda/index.html"
+      "src": "/harshit-chavda",
+      "dest": "/harshit-chavda/index.html"
     },
     {
-      "source": "/harshit-chavda/",
-      "destination": "/harshit-chavda/index.html"
+      "src": "/harshit-chavda/",
+      "dest": "/harshit-chavda/index.html"
     },
     {
-      "source": "/jignesh-shah",
-      "destination": "/jignesh-shah/index.html"
+      "src": "/jignesh-shah",
+      "dest": "/jignesh-shah/index.html"
     },
     {
-      "source": "/jignesh-shah/",
-      "destination": "/jignesh-shah/index.html"
+      "src": "/jignesh-shah/",
+      "dest": "/jignesh-shah/index.html"
     },
     {
-      "source": "/ashish-shah",
-      "destination": "/ashish-shah/index.html"
+      "src": "/ashish-shah",
+      "dest": "/ashish-shah/index.html"
     },
     {
-      "source": "/ashish-shah/",
-      "destination": "/ashish-shah/index.html"
+      "src": "/ashish-shah/",
+      "dest": "/ashish-shah/index.html"
     },
     {
-      "source": "/abhishek-shaini",
-      "destination": "/abhishek-shaini/index.html"
+      "src": "/abhishek-shaini",
+      "dest": "/abhishek-shaini/index.html"
     },
     {
-      "source": "/abhishek-shaini/",
-      "destination": "/abhishek-shaini/index.html"
+      "src": "/abhishek-shaini/",
+      "dest": "/abhishek-shaini/index.html"
     },
     {
-      "source": "/ankur-shah",
-      "destination": "/ankur-shah/index.html"
+      "src": "/ankur-shah",
+      "dest": "/ankur-shah/index.html"
     },
     {
-      "source": "/ankur-shah/",
-      "destination": "/ankur-shah/index.html"
+      "src": "/ankur-shah/",
+      "dest": "/ankur-shah/index.html"
     },
     {
-      "source": "/anvar-sanji",
-      "destination": "/anvar-sanji/index.html"
+      "src": "/anvar-sanji",
+      "dest": "/anvar-sanji/index.html"
     },
     {
-      "source": "/anvar-sanji/",
-      "destination": "/anvar-sanji/index.html"
+      "src": "/anvar-sanji/",
+      "dest": "/anvar-sanji/index.html"
     },
     {
-      "source": "/hemal-gandhi",
-      "destination": "/hemal-gandhi/index.html"
+      "src": "/hemal-gandhi",
+      "dest": "/hemal-gandhi/index.html"
     },
     {
-      "source": "/hemal-gandhi/",
-      "destination": "/hemal-gandhi/index.html"
+      "src": "/hemal-gandhi/",
+      "dest": "/hemal-gandhi/index.html"
     },
     {
-      "source": "/khushal-soni",
-      "destination": "/khushal-soni/index.html"
+      "src": "/khushal-soni",
+      "dest": "/khushal-soni/index.html"
     },
     {
-      "source": "/khushal-soni/",
-      "destination": "/khushal-soni/index.html"
+      "src": "/khushal-soni/",
+      "dest": "/khushal-soni/index.html"
     },
     {
-      "source": "/haseeb-mohamr",
-      "destination": "/haseeb-mohamr/index.html"
+      "src": "/haseeb-mohamr",
+      "dest": "/haseeb-mohamr/index.html"
     },
     {
-      "source": "/haseeb-mohamr/",
-      "destination": "/haseeb-mohamr/index.html"
+      "src": "/haseeb-mohamr/",
+      "dest": "/haseeb-mohamr/index.html"
     }
   ]
 }
