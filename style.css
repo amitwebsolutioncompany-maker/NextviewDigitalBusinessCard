@@ -81,6 +81,167 @@ body {
   padding: 20px 0 100px;
 }
 
+/* QR Code Container */
+.qr-container {
+  display: none;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px 0 100px;
+}
+
+.qr-container .bg-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+}
+
+.qr-container .bg-gradient video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qr-section {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.qr-header {
+  margin-bottom: 30px;
+}
+
+.qr-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.25);
+  margin-bottom: 16px;
+}
+
+.qr-profile-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.qr-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.qr-message {
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.qr-greeting {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.qr-intro {
+  font-size: 15px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.qr-dynamic-name {
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.qr-reference {
+  font-size: 14px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.qr-save {
+  font-size: 14px;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.qr-code-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.qr-code {
+  padding: 10px;
+}
+
+.qr-code img {
+  display: block;
+  max-width: 200px;
+  height: auto;
+}
+
+.qr-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.qr-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.qr-btn i {
+  font-size: 18px;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 4px 12px rgba(30,136,229,0.3);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30,136,229,0.4);
+}
+
+.secondary-btn {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.secondary-btn:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
 .profile-container .bg-gradient {
   position: fixed;
   inset: 0;
@@ -170,6 +331,13 @@ body {
   color: var(--accent);
   font-size: 18px;
 }
+
+.about-section h2 i { color: #f59e0b; }
+.contacts-section h2 i { color: #8b5cf6; }
+.social-section h2 i { color: #ec4899; }
+.hours-section h2 i { color: #06b6d4; }
+.gallery-section h2 i { color: #10b981; }
+.location-section h2 i { color: #ef4444; }
 
 /* Profile Section */
 .profile {
@@ -270,6 +438,11 @@ body {
   font-size: 20px;
   color: var(--accent);
 }
+
+.action-btn[href^="tel:"] i { color: #3b82f6; }
+.action-btn[href^="https://www.nexttechgroup.com"] i { color: #8b5cf6; }
+.action-btn[href^="https://wa.me"] i { color: #25d366; }
+.action-btn[href^="mailto:"] i { color: #f97316; }
 
 .action-btn span {
   color: var(--text-primary);
@@ -395,6 +568,10 @@ body {
   width: 20px;
   color: var(--accent);
 }
+
+.contact-info-row i.fa-phone { color: #3b82f6; }
+.contact-info-row i.fa-whatsapp { color: #25d366; }
+.contact-info-row i.fa-envelope { color: #f97316; }
 
 .add-contact-btn {
   width: 100%;

@@ -7,6 +7,7 @@
 <title>NextView Digital Business Cards</title>
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   body {
@@ -137,6 +138,52 @@
       <span>Haseeb Mohamr</span>
       <i class="fas fa-arrow-right"></i>
     </a>
+  </div>
+</div>
+
+<!-- QR Code Page -->
+<div class="qr-container">
+  <a href="." class="back-btn">
+    <i class="fas fa-arrow-left"></i>
+    <span>Back to Profiles</span>
+  </a>
+
+  <div class="bg-gradient">
+    <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+      <source src="assets/bg4.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="container">
+    <section class="glass qr-section">
+      <div class="qr-header">
+        <img src="assets/logo.png" alt="Nextview Logo" class="qr-logo">
+        <h1 class="qr-profile-name">Profile Name</h1>
+        <p class="qr-subtitle">Scan to view digital business card</p>
+      </div>
+
+      <div class="qr-message">
+        <p class="qr-greeting">Hi! 👋</p>
+        <p class="qr-intro">I'm <span class="qr-dynamic-name">Profile Name</span> from Nextview.</p>
+        <p class="qr-reference">Here's my digital card for your reference: 📇</p>
+        <p class="qr-save">Do save it for future reference! 😊</p>
+      </div>
+
+      <div class="qr-code-wrapper">
+        <div id="qrcode" class="qr-code"></div>
+      </div>
+
+      <div class="qr-actions">
+        <button id="openCardBtn" class="qr-btn primary-btn">
+          <i class="fas fa-id-card"></i>
+          <span>Open Digital Card</span>
+        </button>
+        <button id="downloadQrBtn" class="qr-btn secondary-btn">
+          <i class="fas fa-download"></i>
+          <span>Download QR Code</span>
+        </button>
+      </div>
+    </section>
   </div>
 </div>
 

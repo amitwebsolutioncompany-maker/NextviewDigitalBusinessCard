@@ -61,7 +61,7 @@ const profiles = {
         role: 'BD Manager',
         phone: '+918817142700',
         email: 'khushal.soni@hotmail.com',
-        image: 'khusal.PNG'
+        image: 'khushal.PNG'
     },
     'haseeb-mohamr': {
         name: 'Haseeb Mohamr',
@@ -77,6 +77,12 @@ function getProfileFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     const profileId = urlParams.get('profile');
     return profileId ? profiles[profileId] : null;
+}
+
+// Get profile ID from URL
+function getProfileIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('profile');
 }
 
 // Render profile dynamically
@@ -163,27 +169,140 @@ function formatPhoneNumber(phone) {
     return phone.replace(/(\+\d{2})(\d{5})(\d{5})/, '$1 $2 $3');
 }
 
-// Initialize dynamic profile
-const currentProfile = getProfileFromUrl();
-if (currentProfile) {
-    // Hide landing page, show profile
+// Generate QR Code
+function generateQRCode(profileId) {
+    const qrContainer = document.getElementById('qrcode');
+    if (!qrContainer) return;
+
+    // Clear previous QR code
+    qrContainer.innerHTML = '';
+
+    // Generate the full URL for the profile
+    const baseUrl = window.location.origin + window.location.pathname;
+    const profileUrl = `${baseUrl}?profile=${profileId}`;
+
+    // Generate QR code
+    new QRCode(qrContainer, {
+        text: profileUrl,
+        width: 200,
+        height: 200,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+    });
+}
+
+// Show QR Page
+function showQRPage(profile) {
     const landingContainer = document.querySelector('.landing-container');
+    const qrContainer = document.querySelector('.qr-container');
     const profileContainer = document.querySelector('.profile-container');
-    const backBtn = document.querySelector('.back-btn');
-    
+    const backBtn = document.querySelector('.qr-container .back-btn');
+
     if (landingContainer) {
         landingContainer.style.display = 'none';
     }
-    
+
     if (profileContainer) {
-        profileContainer.style.display = 'block';
-        renderProfile(currentProfile);
+        profileContainer.style.display = 'none';
     }
-    
-    // Hide back button when profile is accessed via URL
+
+    if (qrContainer) {
+        qrContainer.style.display = 'block';
+    }
+
+    // Update profile name on QR page
+    const qrProfileName = document.querySelector('.qr-profile-name');
+    if (qrProfileName && profile) {
+        qrProfileName.textContent = profile.name;
+    }
+
+    // Update dynamic name in message
+    const qrDynamicName = document.querySelector('.qr-dynamic-name');
+    if (qrDynamicName && profile) {
+        qrDynamicName.textContent = profile.name;
+    }
+
+    // Generate QR code
+    const profileId = getProfileIdFromUrl();
+    if (profileId) {
+        generateQRCode(profileId);
+    }
+
+    // Hide back button on QR page
     if (backBtn) {
         backBtn.classList.add('hidden');
     }
+}
+
+// Show Profile Card Directly (when coming from QR page)
+function showProfileCard(profile) {
+    const landingContainer = document.querySelector('.landing-container');
+    const qrContainer = document.querySelector('.qr-container');
+    const profileContainer = document.querySelector('.profile-container');
+    const backBtn = document.querySelector('.profile-container .back-btn');
+
+    if (landingContainer) {
+        landingContainer.style.display = 'none';
+    }
+
+    if (qrContainer) {
+        qrContainer.style.display = 'none';
+    }
+
+    if (profileContainer) {
+        profileContainer.style.display = 'block';
+        renderProfile(profile);
+    }
+
+    // Show back button on profile page
+    if (backBtn) {
+        backBtn.classList.remove('hidden');
+    }
+}
+
+// Download QR Code as PNG
+function downloadQRCode() {
+    const qrContainer = document.getElementById('qrcode');
+    const qrImage = qrContainer.querySelector('img');
+
+    if (qrImage) {
+        const link = document.createElement('a');
+        link.href = qrImage.src;
+        link.download = 'digital-card-qr.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+
+// Initialize based on URL parameters
+const currentProfile = getProfileFromUrl();
+const profileId = getProfileIdFromUrl();
+const showCard = new URLSearchParams(window.location.search).get('showCard');
+
+if (currentProfile) {
+    if (showCard === 'true') {
+        // Show profile card directly (from QR page)
+        showProfileCard(currentProfile);
+    } else {
+        // Show QR page first
+        showQRPage(currentProfile);
+    }
+}
+
+// QR Page Button Event Listeners
+const openCardBtn = document.getElementById('openCardBtn');
+const downloadQrBtn = document.getElementById('downloadQrBtn');
+
+if (openCardBtn && profileId) {
+    openCardBtn.addEventListener('click', () => {
+        window.location.href = `?profile=${profileId}&showCard=true`;
+    });
+}
+
+if (downloadQrBtn) {
+    downloadQrBtn.addEventListener('click', downloadQRCode);
 }
 
 // Splash Screen
