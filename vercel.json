@@ -5,7 +5,15 @@
       "destination": "/milan-bhatt/index.html"
     },
     {
+      "source": "/milan-bhatt/",
+      "destination": "/milan-bhatt/index.html"
+    },
+    {
       "source": "/harshit-chavda",
+      "destination": "/harshit-chavda/index.html"
+    },
+    {
+      "source": "/harshit-chavda/",
       "destination": "/harshit-chavda/index.html"
     },
     {
@@ -13,7 +21,15 @@
       "destination": "/jignesh-shah/index.html"
     },
     {
+      "source": "/jignesh-shah/",
+      "destination": "/jignesh-shah/index.html"
+    },
+    {
       "source": "/ashish-shah",
+      "destination": "/ashish-shah/index.html"
+    },
+    {
+      "source": "/ashish-shah/",
       "destination": "/ashish-shah/index.html"
     },
     {
@@ -21,7 +37,15 @@
       "destination": "/abhishek-shaini/index.html"
     },
     {
+      "source": "/abhishek-shaini/",
+      "destination": "/abhishek-shaini/index.html"
+    },
+    {
       "source": "/ankur-shah",
+      "destination": "/ankur-shah/index.html"
+    },
+    {
+      "source": "/ankur-shah/",
       "destination": "/ankur-shah/index.html"
     },
     {
@@ -29,7 +53,15 @@
       "destination": "/anvar-sanji/index.html"
     },
     {
+      "source": "/anvar-sanji/",
+      "destination": "/anvar-sanji/index.html"
+    },
+    {
       "source": "/hemal-gandhi",
+      "destination": "/hemal-gandhi/index.html"
+    },
+    {
+      "source": "/hemal-gandhi/",
       "destination": "/hemal-gandhi/index.html"
     },
     {
@@ -37,7 +69,15 @@
       "destination": "/khushal-soni/index.html"
     },
     {
+      "source": "/khushal-soni/",
+      "destination": "/khushal-soni/index.html"
+    },
+    {
       "source": "/haseeb-mohamr",
+      "destination": "/haseeb-mohamr/index.html"
+    },
+    {
+      "source": "/haseeb-mohamr/",
       "destination": "/haseeb-mohamr/index.html"
     }
   ]
