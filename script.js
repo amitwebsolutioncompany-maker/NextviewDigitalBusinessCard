@@ -1,3 +1,189 @@
+// Profile Data
+const profiles = {
+    'milan-bhatt': {
+        name: 'Milan Bhatt',
+        role: 'BD Manager',
+        phone: '+917600014245',
+        email: 'milan.bhatt@hotmail.com',
+        image: 'milan.PNG'
+    },
+    'harshit-chavda': {
+        name: 'Harshit Chavda',
+        role: 'BD Manager',
+        phone: '+919979328804',
+        email: 'harshit.chavda@hotmail.com',
+        image: 'harshit.PNG'
+    },
+    'jignesh-shah': {
+        name: 'Jignesh Shah',
+        role: 'BD Manager',
+        phone: '+919328127207',
+        email: 'jignesh.shah@hotmail.com',
+        image: 'jignesh.PNG'
+    },
+    'ashish-shah': {
+        name: 'Ashish Shah',
+        role: 'BD Manager',
+        phone: '+919825100164',
+        email: 'ashish.shah@hotmail.com',
+        image: 'ashish.PNG'
+    },
+    'abhishek-shaini': {
+        name: 'Abhishek Shaini',
+        role: 'BD Manager',
+        phone: '+918840576718',
+        email: 'abhishek.shaini@hotmail.com',
+        image: 'abhishek.PNG'
+    },
+    'ankur-shah': {
+        name: 'Ankur Shah',
+        role: 'BD Manager',
+        phone: '+919979923183',
+        email: 'ankur.shah@hotmail.com',
+        image: 'ankur.PNG'
+    },
+    'anvar-sanji': {
+        name: 'Anvar Sanji',
+        role: 'BD Manager',
+        phone: '+919904033149',
+        email: 'anvar.sanji@hotmail.com',
+        image: 'anvar.PNG'
+    },
+    'hemal-gandhi': {
+        name: 'Hemal Gandhi',
+        role: 'BD Manager',
+        phone: '+919727915007',
+        email: 'hemal.gandhi@hotmail.com',
+        image: 'hemal.PNG'
+    },
+    'khushal-soni': {
+        name: 'Khushal Soni',
+        role: 'BD Manager',
+        phone: '+918817142700',
+        email: 'khushal.soni@hotmail.com',
+        image: 'khusal.PNG'
+    },
+    'haseeb-mohamr': {
+        name: 'Haseeb Mohamr',
+        role: 'BD Manager',
+        phone: '+919981440515',
+        email: 'haseeb.mohamr@hotmail.com',
+        image: 'haseeb.PNG'
+    }
+};
+
+// Get profile from URL parameter
+function getProfileFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const profileId = urlParams.get('profile');
+    return profileId ? profiles[profileId] : null;
+}
+
+// Render profile dynamically
+function renderProfile(profile) {
+    if (!profile) return;
+
+    // Update profile name
+    const profileName = document.querySelector('.profile-name');
+    if (profileName) {
+        profileName.textContent = `${profile.name} (${profile.role})`;
+    }
+
+    // Update profile image
+    const profileImage = document.querySelector('.profile-image img');
+    if (profileImage) {
+        profileImage.src = `public/${profile.image}`;
+        profileImage.alt = profile.name;
+    }
+
+    // Update contact avatar
+    const contactAvatar = document.querySelector('.contact-avatar img');
+    if (contactAvatar) {
+        contactAvatar.src = `public/${profile.image}`;
+        contactAvatar.alt = profile.name;
+    }
+
+    // Update contact name
+    const contactName = document.querySelector('.contact-details h3');
+    if (contactName) {
+        contactName.textContent = profile.name;
+    }
+
+    // Update contact role
+    const contactRole = document.querySelector('.contact-role');
+    if (contactRole) {
+        contactRole.textContent = profile.role;
+    }
+
+    // Update phone number
+    const phoneElements = document.querySelectorAll('.contact-info-row');
+    phoneElements.forEach(row => {
+        const icon = row.querySelector('i');
+        if (icon && icon.classList.contains('fa-phone')) {
+            row.querySelector('span').textContent = formatPhoneNumber(profile.phone);
+        }
+        if (icon && icon.classList.contains('fa-whatsapp')) {
+            row.querySelector('span').textContent = formatPhoneNumber(profile.phone);
+        }
+    });
+
+    // Update email
+    const emailElements = document.querySelectorAll('.contact-info-row');
+    emailElements.forEach(row => {
+        const icon = row.querySelector('i');
+        if (icon && icon.classList.contains('fa-envelope')) {
+            row.querySelector('span').textContent = profile.email;
+        }
+    });
+
+    // Update quick action buttons
+    const callBtn = document.querySelector('.action-btn[href^="tel:"]');
+    if (callBtn) {
+        callBtn.href = `tel:${profile.phone}`;
+    }
+
+    const whatsappBtn = document.querySelector('.action-btn[href^="https://wa.me"]');
+    if (whatsappBtn) {
+        whatsappBtn.href = `https://wa.me/${profile.phone.replace('+', '')}`;
+    }
+
+    const emailBtn = document.querySelector('.action-btn[href^="mailto:"]');
+    if (emailBtn) {
+        emailBtn.href = `mailto:${profile.email}?subject=Inquiry from Digital Card`;
+    }
+
+    // Update add contact button
+    const addContactBtn = document.querySelector('.add-contact-btn');
+    if (addContactBtn) {
+        addContactBtn.onclick = () => saveContact(profile.name, profile.role, profile.phone, profile.email);
+    }
+
+    // Update page title
+    document.title = `${profile.name} - Nextview Digital Card`;
+}
+
+// Format phone number for display
+function formatPhoneNumber(phone) {
+    return phone.replace(/(\+\d{2})(\d{5})(\d{5})/, '$1 $2 $3');
+}
+
+// Initialize dynamic profile
+const currentProfile = getProfileFromUrl();
+if (currentProfile) {
+    // Hide landing page, show profile
+    const landingContainer = document.querySelector('.landing-container');
+    const profileContainer = document.querySelector('.profile-container');
+    
+    if (landingContainer) {
+        landingContainer.style.display = 'none';
+    }
+    
+    if (profileContainer) {
+        profileContainer.style.display = 'block';
+        renderProfile(currentProfile);
+    }
+}
+
 // Splash Screen
 setTimeout(() => {
     const splash = document.getElementById('splash');
