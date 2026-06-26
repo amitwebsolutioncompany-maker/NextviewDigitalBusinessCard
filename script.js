@@ -60,7 +60,7 @@ const profiles = {
         name: 'Khushal Soni',
         role: 'BD Manager',
         phone: '+918817142700',
-        email: 'khushal.soni@hotmail.com',
+        email: 'sonikhushal.ks@gmail.com',
         image: 'khushal.PNG'
     },
     'haseeb-mohamr': {
