@@ -4,14 +4,14 @@ const profiles = {
         name: 'Milan Bhatt',
         role: 'BD Manager',
         phone: '+917600014245',
-        email: 'milan.bhatt@hotmail.com',
+        email: 'milanvbhatt@gmail.com',
         image: 'milan.PNG'
     },
     'harshit-chavda': {
         name: 'Harshit Chavda',
         role: 'BD Manager',
         phone: '+919979328804',
-        email: 'harshit.chavda@hotmail.com',
+        email: 'harshitc143@gmail.com',
         image: 'harshit.PNG'
     },
     'jignesh-shah': {
@@ -25,21 +25,21 @@ const profiles = {
         name: 'Ashish Shah',
         role: 'BD Manager',
         phone: '+919825100164',
-        email: 'ashish.shah@hotmail.com',
+        email: 'rishabh.ashish001@gmail.com',
         image: 'ashish.PNG'
     },
     'abhishek-shaini': {
         name: 'Abhishek Shaini',
         role: 'BD Manager',
         phone: '+918840576718',
-        email: 'abhishek.shaini@hotmail.com',
+        email: 'abhisheksaini982@gmail.com',
         image: 'abhishek.PNG'
     },
     'ankur-shah': {
         name: 'Ankur Shah',
         role: 'BD Manager',
         phone: '+919979923183',
-        email: 'ankur.shah@hotmail.com',
+        email: 'ankur_a_shah@hotmail.com',
         image: 'ankur.PNG'
     },
     'anvar-sanji': {
@@ -67,7 +67,7 @@ const profiles = {
         name: 'Haseeb Mohamr',
         role: 'BD Manager',
         phone: '+919981440515',
-        email: 'haseeb.mohamr@hotmail.com',
+        email: 'Haseeb.mohd@rediffmail.com',
         image: 'haseeb.PNG'
     }
 };
