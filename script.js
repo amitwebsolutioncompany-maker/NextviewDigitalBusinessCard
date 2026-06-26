@@ -173,6 +173,7 @@ if (currentProfile) {
     // Hide landing page, show profile
     const landingContainer = document.querySelector('.landing-container');
     const profileContainer = document.querySelector('.profile-container');
+    const backBtn = document.querySelector('.back-btn');
     
     if (landingContainer) {
         landingContainer.style.display = 'none';
@@ -181,6 +182,11 @@ if (currentProfile) {
     if (profileContainer) {
         profileContainer.style.display = 'block';
         renderProfile(currentProfile);
+    }
+    
+    // Hide back button when profile is accessed via URL
+    if (backBtn) {
+        backBtn.classList.add('hidden');
     }
 }
 
