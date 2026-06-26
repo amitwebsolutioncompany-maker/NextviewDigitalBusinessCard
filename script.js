@@ -92,14 +92,14 @@ function renderProfile(profile) {
     // Update profile image
     const profileImage = document.querySelector('.profile-image img');
     if (profileImage) {
-        profileImage.src = `public/${profile.image}`;
+        profileImage.src = `assets/${profile.image}`;
         profileImage.alt = profile.name;
     }
 
     // Update contact avatar
     const contactAvatar = document.querySelector('.contact-avatar img');
     if (contactAvatar) {
-        contactAvatar.src = `public/${profile.image}`;
+        contactAvatar.src = `assets/${profile.image}`;
         contactAvatar.alt = profile.name;
     }
 
