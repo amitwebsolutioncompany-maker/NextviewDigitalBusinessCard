@@ -53,7 +53,7 @@ const profiles = {
         name: 'Hemal Gandhi',
         role: 'BD Manager',
         phone: '+919727915007',
-        email: 'hemal.gandhi@hotmail.com',
+        email: 'hemal261183@gmail.com',
         image: 'hemal.PNG'
     },
     'khushal-soni': {
