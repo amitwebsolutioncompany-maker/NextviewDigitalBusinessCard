@@ -89,12 +89,8 @@ function renderProfile(profile) {
         profileName.textContent = `${profile.name} (${profile.role})`;
     }
 
-    // Update profile image
-    const profileImage = document.querySelector('.profile-image img');
-    if (profileImage) {
-        profileImage.src = `assets/${profile.image}`;
-        profileImage.alt = profile.name;
-    }
+    // Keep logo.png for profile image (top section)
+    // Dynamic user image only in contact avatar section
 
     // Update contact avatar
     const contactAvatar = document.querySelector('.contact-avatar img');
