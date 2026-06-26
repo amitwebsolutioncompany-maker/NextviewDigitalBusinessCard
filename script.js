@@ -46,7 +46,7 @@ const profiles = {
         name: 'Anvar Sanji',
         role: 'BD Manager',
         phone: '+919904033149',
-        email: 'anvar.sanji@hotmail.com',
+        email: 'geelectronicsworld@gmail.com',
         image: 'anvar.PNG'
     },
     'hemal-gandhi': {
