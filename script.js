@@ -263,16 +263,111 @@ function showProfileCard(profile) {
 
 // Download QR Code as PNG
 function downloadQRCode() {
+    // Check if html2canvas is loaded
+    if (typeof html2canvas === 'undefined') {
+        console.error('html2canvas library is not loaded');
+        alert('Library not loaded. Please refresh the page.');
+        return;
+    }
+
+    const qrSection = document.querySelector('.qr-section');
+    const qrActions = document.querySelector('.qr-actions');
+    const qrLogo = document.querySelector('.qr-logo');
+
+    if (!qrSection) {
+        console.error('QR section not found');
+        return;
+    }
+
+    // Convert logo to base64 to avoid CORS issues
+    if (qrLogo) {
+        const img = new Image();
+        img.crossOrigin = 'Anonymous';
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            qrLogo.src = canvas.toDataURL('image/png');
+            captureAndDownload();
+        };
+        img.onerror = function() {
+            console.log('Could not convert logo, proceeding with original');
+            captureAndDownload();
+        };
+        img.src = qrLogo.src;
+    } else {
+        captureAndDownload();
+    }
+
+    function captureAndDownload() {
+        // Hide buttons before capturing
+        if (qrActions) {
+            qrActions.style.display = 'none';
+        }
+
+        // Capture the entire QR section
+        html2canvas(qrSection, {
+            backgroundColor: '#0d47a1',
+            scale: 2,
+            useCORS: false,
+            allowTaint: true,
+            logging: false
+        }).then(canvas => {
+            console.log('Canvas created successfully');
+
+            // Show buttons again
+            if (qrActions) {
+                qrActions.style.display = 'flex';
+            }
+
+            // Convert canvas to image and download
+            try {
+                const link = document.createElement('a');
+                link.download = 'digital-card-qr.png';
+                link.href = canvas.toDataURL('image/png');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                console.log('Download initiated');
+            } catch (e) {
+                console.error('Error during download:', e);
+                // Fallback: download just the QR code
+                downloadQRCodeOnly();
+            }
+        }).catch(error => {
+            // Show buttons again if error occurs
+            if (qrActions) {
+                qrActions.style.display = 'flex';
+            }
+            console.error('Error capturing QR section:', error);
+            // Fallback: download just the QR code
+            downloadQRCodeOnly();
+        });
+    }
+}
+
+// Fallback: Download only QR code image
+function downloadQRCodeOnly() {
     const qrContainer = document.getElementById('qrcode');
     const qrImage = qrContainer.querySelector('img');
 
     if (qrImage) {
-        const link = document.createElement('a');
-        link.href = qrImage.src;
-        link.download = 'digital-card-qr.png';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        try {
+            const link = document.createElement('a');
+            link.download = 'digital-card-qr.png';
+            link.href = qrImage.src;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert('Downloaded QR code only due to security restrictions.');
+        } catch (e) {
+            console.error('Error downloading QR only:', e);
+            alert('Could not download. Please try right-clicking the QR code and selecting "Save Image As".');
+        }
+    } else {
+        alert('Could not find QR code image.');
     }
 }
 
